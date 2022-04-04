@@ -3,6 +3,9 @@
 
 This repository contains the official source code for [An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models](https://arxiv.org/abs/2110.08527) presented at ACL 2022.
 
+## Bias Bench Leaderboard
+For tracking progress on the intrinsic bias benchmarks evaluated in this work, we created [**Bias Bench**](https://mcgill-nlp.github.io/bias-bench/). We plan to update Bias Bench in the future with additional bias benchmarks. To make a submission to Bias Bench, please contact nicholas.meade@mila.quebec.
+
 ## Install
 ```bash
 git clone https://github.com/mcgill-nlp/bias-bench.git
