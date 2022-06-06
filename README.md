@@ -70,12 +70,15 @@ We thank the authors for making their code publicly available.
 ## Citation
 If you use the code in this repository, please cite the following paper:
 
-    @inproceedings{meade_empirical_2022,
-      address = {Online},
-      title = {An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models},
-      booktitle = {Proceedings of the 60th {Annual} {Meeting} of the {Association} for {Computational} {Linguistics},
-      publisher = {Association for Computational Linguistics},
-      author = {Meade, Nicholas and Poole-Dayan, Elinor and Reddy, Siva},
-      month = may,
-      year = {2022},
+    @inproceedings{meade_2022_empirical,
+        title = "An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models",
+        author = "Meade, Nicholas  and Poole-Dayan, Elinor  and Reddy, Siva",
+        booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+        month = may,
+        year = "2022",
+        address = "Dublin, Ireland",
+        publisher = "Association for Computational Linguistics",
+        url = "https://aclanthology.org/2022.acl-long.132",
+        doi = "10.18653/v1/2022.acl-long.132",
+        pages = "1878--1898",
     }
