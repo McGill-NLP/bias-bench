@@ -502,19 +502,11 @@ class GPT2Wrapper(GenerativeLMWrapper):
     def compute_loss_self_debiasing(
         self,
         input_ids: torch.Tensor,
-        trg_len: int,
         debiasing_prefixes: List[str],
         decay_constant: float = 50,
         epsilon: float = 0.01,
         debug: bool = False,
     ) -> torch.Tensor:
-
-        # === When used for non-perplexity experiments === #
-        # def compute_loss_self_debiasing(self, input_ids: torch.Tensor, debiasing_prefixes: List[str], decay_constant: float = 50,
-        # epsilon: float = 0.01, debug: bool = False) -> torch.Tensor:
-        # === When used for non-perplexity experiments === #
-
-        # self._device = "cuda"
         self._device = "cuda"
 
         self._model.init_logits_processor(
@@ -553,12 +545,6 @@ class GPT2Wrapper(GenerativeLMWrapper):
             [input_prefixes["input_ids"], input_ids_repeated], dim=-1
         )
 
-        # === Only comment when used for non-perplexity experiments ===
-        target_ids = input_ids_repeated.clone()
-        trg_len += shifts[0]
-        target_ids[:, :-trg_len] = -100
-        # === Only comment when used for non-perplexity experiments ===
-
         position_ids = attention_mask.long().cumsum(-1) - 1
         position_ids.masked_fill_(attention_mask == 0, 1)
 
@@ -570,25 +556,8 @@ class GPT2Wrapper(GenerativeLMWrapper):
         lm_logits = outputs["logits"]
 
         for idx in range(lm_logits.shape[1]):
-            # === HERE ===
             lm_logits[:, idx, :] = self._model.logits_processor(
                 input_ids=None, scores=lm_logits[:, idx, :]
             )
 
-        # === When used for non-perplexity experiments ===
-        # return lm_logits, input_ids_repeated
-        # === When used for non-perplexity experiments ===
-
-        batch_size = lm_logits.shape[0] // (1 + len(debiasing_prefixes))
-        lm_logits = lm_logits[:batch_size, shifts[0] :, :]
-        target_ids = target_ids[:batch_size, shifts[0] :]
-
-        # Shift so that tokens < n predict n
-        shift_logits = lm_logits[..., :-1, :].contiguous()
-        shift_labels = target_ids[..., 1:].contiguous()
-        # Flatten the tokens
-        loss_fct = CrossEntropyLoss()
-        loss = loss_fct(
-            shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1)
-        )
-        return loss
+        return lm_logits, input_ids_repeated
