@@ -27,7 +27,7 @@ class IntrasentenceLoader(object):
             for sentence in cluster.sentences:
                 if (
                     self._model_name_or_path is not None
-                    and self._model_name_or_path == "roberta-base"
+                    and "roberta" in self._model_name_or_path
                 ):
                     insertion_tokens = self._tokenizer.encode(
                         f" {sentence.template_word}",
