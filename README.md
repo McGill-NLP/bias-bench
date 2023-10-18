@@ -64,6 +64,7 @@ This repository makes use of code from the following repositories:
 * [On Measuring Social Biases in Sentence Encoders](https://github.com/w4ngatang/sent-bias)
 * [Null It Out: Guarding Protected Attributes by Iterative Nullspace Projection](https://github.com/shauli-ravfogel/nullspace_projection)
 * [Towards Understanding and Mitigating Social Biases in Language Models](https://github.com/pliang279/lm_bias)
+* [Self-Diagnosis and Self-Debiasing: A Proposal for Reducing Corpus-Based Bias in NLP](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00434/108865/Self-Diagnosis-and-Self-Debiasing-A-Proposal-for)
 
 We thank the authors for making their code publicly available.
 
