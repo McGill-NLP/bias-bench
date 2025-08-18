@@ -1,9 +1,14 @@
-# An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models
-> Nicholas Meade, Elinor Poole-Dayan, Siva Reddy
-
 [![arxiv](https://img.shields.io/badge/arXiv-2110.00768-b31b1b.svg)](https://arxiv.org/abs/2110.08527)
 
-This repository contains the official source code for [An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models](https://arxiv.org/abs/2110.08527) presented at ACL 2022.
+# An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models
+> [Nicholas Meade](https://ncmeade.github.io), [Elinor Poole-Dayan](https://elinorp-d.github.io), [Siva Reddy](https://sivareddy.in)
+
+This repository contains the official source code for *[An Empirical Survey of the Effectiveness of Debiasing Techniques for Pre-trained Language Models](https://arxiv.org/abs/2110.08527)* presented at ACL 2022.
+
+<br>
+<p align="center">
+    <img src="assets/results.png" width="75%" />
+</p>
 
 ## Bias Bench Leaderboard
 For tracking progress on the intrinsic bias benchmarks evaluated in this work, we created [**Bias Bench**](https://mcgill-nlp.github.io/bias-bench/). We plan to update Bias Bench in the future with additional bias benchmarks. To make a submission to Bias Bench, please contact nicholas.meade@mila.quebec.
